@@ -6,7 +6,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: micropost-dev
+  database: micropost_dev
   pool: 5
   username: micropost
   password: 15914930358CHUan
@@ -18,7 +18,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: micropost-test
+  database: micropost_test
   pool: 5
   username: micropost
   password: 15914930358CHUan
@@ -27,7 +27,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: micropost-production
+  database: micropost_production
   pool: 5
   username: micropost
   password: 15914930358CHUan
