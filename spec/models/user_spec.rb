@@ -26,6 +26,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:microblogs) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -47,6 +48,7 @@ describe User do
 
     it { should be_admin }
   end
+
   describe "when name is not present" do
   	before { @user.name = " " }
   	it { should_not be_valid }
@@ -142,5 +144,39 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "microblog associations" do
+
+    before { @user.save }
+    let!(:older_microblog) do
+      FactoryGirl.create(:microblog, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_microblog) do
+      FactoryGirl.create(:microblog, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right microblogs in the right order" do
+      @user.microblogs.should == [newer_microblog, older_microblog]
+    end
+
+    it "should destroy associated microblogs" do
+      microblogs = @user.microblogs.dup
+      @user.destroy
+      microblogs.should_not be_empty
+      microblogs.each do |microblog|
+        Microblog.find_by_id(microblog.id).should be_nil
+      end
+    end
+
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:microblog, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(newer_microblog) }
+      its(:feed) { should include(older_microblog) }
+      its(:feed) { should_not include(unfollowed_post) }
+    end
   end
 end

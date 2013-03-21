@@ -91,6 +91,19 @@ describe "Authentication" do
 				before { put user_path(user) }
 				specify { response.should redirect_to(signin_path) }
 			end
+
+			describe "in the Microblogs controller" do
+
+				describe "submitting to the create action" do
+					before { post microblogs_path }
+					specify { response.should redirect_to(signin_path) }
+				end
+
+				describe " submitting to the destroy action" do
+					before { delete microblog_path(FactoryGirl.create(:microblog)) }
+					specify { response.should redirect_to(signin_path) }
+				end
+			end
 		end
 
 		describe "as wrong user" do

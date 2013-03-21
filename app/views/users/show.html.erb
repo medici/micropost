@@ -8,4 +8,13 @@
 			</h1>
 		</section>
 	</aside>
+	<div class="span8">
+		<% if @user.microblogs.any? %>
+			<h3>Microblogs (<%= @user.microblogs.count %>)</h3>
+			<ol class="microblogs">
+				<%= render @microblogs %>
+			</ol>
+			<%= will_paginate @microblogs %>
+		<% end %>
+	</div>
 </div>

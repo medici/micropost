@@ -1,7 +1,11 @@
 class StaticPagesController < ApplicationController
   def home
-  end
-
+    if signed_in?
+      @microblog = current_user.microblogs.build 
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
+	end
+	
   def help
   end
 
