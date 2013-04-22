@@ -3,6 +3,7 @@ namespace :db do
 	task populate: :environment do
 		make_users
 		make_microposts
+		make_reply_microposts
 		make_relationships
 	end
 end
@@ -26,9 +27,28 @@ def make_users
 
 	def make_microposts
 		users = User.all(limit: 6)
-		50.times do
+		50.times do 
 			content = Faker::Lorem.sentence(5)
 			users.each { |user| user.microblogs.create!(content: content) }
+		end
+	end
+
+	def make_reply_microposts
+		users = User.all(limit: 6)
+		50.times do |n|
+			if n%2==0 then
+				microblog = Microblog.find(300-n)
+				content = Faker::Lorem.sentence(5)
+				users.each{ |user| user.microblogs.create!(content:content,in_reply_to: microblog.id)}
+			else 
+				
+				content = Faker::Lorem.sentence(5)
+				users.each do |user|
+					microblog= Microblog.find(Microblog.count)
+					user.microblogs.create!(content:content,in_reply_to: microblog.id)
+				end
+			end
+			
 		end
 	end
 

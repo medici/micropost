@@ -5,7 +5,12 @@ Micropost::Application.routes.draw do
     end
   end
   resources :sessions,   only: [:new, :create, :destroy]
-  resources :microblogs, only: [:create, :destroy]
+  
+  resources :microblogs, only: [:create, :destroy] do
+    member do
+      get :expand, :view_conversation
+    end
+  end
   resources :relationships, only: [:create, :destroy]
   
   root to: 'static_pages#home'

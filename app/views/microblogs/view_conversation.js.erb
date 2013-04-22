@@ -1,0 +1,15 @@
+if( typeof( $('#<%= @micropost_id %>').find('.replying').html() ) == 'undefined'){
+	$('<div class="replying"></div>')
+	.html("<%= escape_javascript(render('shared/replying')) %>")
+	.prependTo('#<%= @micropost_id %>');
+	$('#<%= @micropost_id %> .view a').text("Hide conversation");
+}
+else {
+	if($('#<%= @micropost_id %> .view a').text() == "View conversation"){
+		$('#<%= @micropost_id %> .view a').text("Hide conversation");
+		$('#<%= @micropost_id %>').find('.replying').slideDown('fast');
+	}else {
+		$('#<%= @micropost_id %> .view a').text("View conversation");
+		$('#<%= @micropost_id %>').find('.replying').slideUp('fast');
+	}
+}

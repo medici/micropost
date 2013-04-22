@@ -10,6 +10,7 @@ describe Microblog do
   it { should respond_to(:content) }
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
+  it { should respond_to(:in_reply_to) }
   its(:user) { should == user }
 
   it { should be_valid }
@@ -36,4 +37,19 @@ describe Microblog do
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
+
+  describe "replied associations" do
+    before { @microblog.save }
+    let!(:replied_user) { FactoryGirl.create(:user) }
+    let!(:replying_microblog) { FactoryGirl.create(:microblog, user: replied_user, 
+                               in_reply_to: @microblog.id) }
+    let!(:in_reply_to) { Microblog.including_replies(@microblog.id) }
+
+    subject { in_reply_to }
+
+
+    it { should == [replying_microblog] }
+  end
+
+  
 end

@@ -1,0 +1,16 @@
+
+if( typeof( $('#<%= @micropost_id %>').find('.replied').html() ) == 'undefined'){
+	$('<div class="replied"></div>')
+	.html("<%= escape_javascript(render('shared/replied')) %>")
+	.appendTo('#<%= @micropost_id %>');
+	$('#<%= @micropost_id %> .expand a').text("Collapse");
+}
+else {
+	if($('#<%= @micropost_id %> .expand a').text() == "Expand"){
+		$('#<%= @micropost_id %> .expand a').text("Collapse");
+		$('#<%= @micropost_id %>').find('.replied').slideDown('fast');
+	}else {
+		$('#<%= @micropost_id %> .expand a').text("Expand");
+		$('#<%= @micropost_id %>').find('.replied').slideUp('fast');
+	}
+}

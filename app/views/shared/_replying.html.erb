@@ -1,0 +1,13 @@
+<% if !@reply_microblog.empty? %>
+		<ul class="replying_microblogs">
+			<% @reply_microblog.each do |msg| %>
+				<li>
+					<%= link_to gravatar_for(msg.user), msg.user %>
+					<span class="user">
+						<%= link_to msg.user.name, msg.user %>
+					</span>
+					<span class="content"><%= msg.content %></span>
+				</li>
+			<% end %>
+		</ul>
+<% end %>
