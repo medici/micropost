@@ -1,0 +1,25 @@
+zh_cn:
+  
+  layouts:
+    header:
+      home:       '主页'
+      help:       '帮助'
+      users:      '所有用户'
+      sign_in:    '登录'
+      accout:     '帐户'
+      profile:    '资料'
+      settings:   '设置'
+      sign_out:   '登出'
+
+    footer:
+      about:      '关于我们'
+      contact:    '联系'
+
+
+  static_pages:
+    home:
+      home_title:    '欢迎来到 Microblog'
+      home_describe: '与你关心的人们一起，探寻变化的大千世界'
+      sign_up:       '注册 Microblog'
+
+

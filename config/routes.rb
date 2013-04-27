@@ -1,28 +1,29 @@
 Micropost::Application.routes.draw do
-  resources :users do
-    member do
-      get :following, :followers
+  scope '(:locale)' do
+    resources :users do
+      member do
+        get :following, :followers
+      end
     end
-  end
-  resources :sessions,   only: [:new, :create, :destroy]
-  
-  resources :microblogs, only: [:create, :destroy] do
-    member do
-      get :expand, :view_conversation
+    resources :sessions,   only: [:new, :create, :destroy]
+    
+    resources :microblogs, only: [:create, :destroy] do
+      member do
+        get :expand, :view_conversation
+      end
     end
+    resources :relationships, only: [:create, :destroy]
+    
+    root to: 'static_pages#home'
+
+    match '/signup',  to: 'users#new'
+    match '/signin',  to: 'sessions#new'
+    match '/signout', to: 'sessions#destroy', via: :delete
+
+    match '/help',    to: 'static_pages#help'
+    match '/about',   to: 'static_pages#about'
+    match '/contact', to: 'static_pages#contact'
   end
-  resources :relationships, only: [:create, :destroy]
-  
-  root to: 'static_pages#home'
-
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-
-  match '/help',    to: 'static_pages#help'
-  match '/about',   to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

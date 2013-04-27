@@ -1,7 +1,7 @@
 include ApplicationHelper
 
 def full_title(page_title)
-	base_title = "Ruby on Rails Tutorial Sample App"
+	base_title = "Microblog"
 	if page_title.empty?
 		base_title
 	else
@@ -11,7 +11,7 @@ end
 
 
 def sign_in(user)
-	visit signin_path
+	visit signin_path('en')
 	fill_in "Email",    with: user.email
 	fill_in "Password", with: user.password
 	click_button "Sign in"

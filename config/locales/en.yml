@@ -6,3 +6,25 @@ en:
     attributes:
       user:
         password_digest: "Password"
+
+  layouts:
+    header:
+      home:           "Home"
+      help:           "Help"
+      users:          "Users"
+      sign_in:        "Sign In"
+      accout:         "Accout"
+      profile:        "Profile"
+      settings:       "Settings"
+      sign_out:       "Sign out"
+
+    footer:
+      about:          "About"
+      contact:        "Contact"
+
+  static_pages:
+    home:
+      home_title:     "Welcome to Microblog"
+      home_describe:  "Find out what's happening, right now, with the people and organizations you care about." 
+      sign_up:        "Sign up now!"
+
