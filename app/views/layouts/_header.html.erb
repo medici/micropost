@@ -4,6 +4,14 @@
   			<%= link_to "microblog", root_path, id: "logo" %>
         <nav>
           <ul class="nav pull-right">
+            <% if signed_in? %>
+              <li id="search">
+                <%= form_for(:searchs, url: search_path,html: { method: :get })  do |f| %>
+                  <%= f.text_field :name ,class: 'search-query',placeholder: 'Search'%>
+                  <%= f.submit "Search", class: "btn btn-small" %>
+                <% end %>
+              </li>
+            <% end %>
             <li><%= link_to t('.home'),     root_path %></li>
             <li><%= link_to t('.help'),     help_path %></li>
             <% if signed_in? %>

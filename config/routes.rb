@@ -6,6 +6,8 @@ Micropost::Application.routes.draw do
       end
     end
     resources :sessions,   only: [:new, :create, :destroy]
+
+    resources :searchs,    only: [:showResult]
     
     resources :microblogs, only: [:create, :destroy] do
       member do
@@ -16,6 +18,7 @@ Micropost::Application.routes.draw do
     
     root to: 'static_pages#home'
 
+    match '/search',  to: 'searchs#showResult'
     match '/signup',  to: 'users#new'
     match '/signin',  to: 'sessions#new'
     match '/signout', to: 'sessions#destroy', via: :delete

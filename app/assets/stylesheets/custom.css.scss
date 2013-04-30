@@ -83,6 +83,7 @@ p {
 	}
 }
 
+
 // forms
 // -------------------------------
 input, textarea, select, .uneditable-input {
@@ -96,6 +97,20 @@ input, textarea, select, .uneditable-input {
 input {
 	height: auto !important;
 }
+
+#search {
+	position: relative;
+	top: 5px;
+	padding-right: 100px;
+	input, button,form {
+		margin: 0px;
+	}
+
+	#searchs_name {
+		width: 160px;
+	}
+}
+
 
 #error_explanation {
 	color: #f00;
