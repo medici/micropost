@@ -17,6 +17,8 @@ en:
       profile:        "Profile"
       settings:       "Settings"
       sign_out:       "Sign out"
+      search:         "Search"
+
 
     footer:
       about:          "About"
@@ -27,4 +29,69 @@ en:
       home_title:     "Welcome to Microblog"
       home_describe:  "Find out what's happening, right now, with the people and organizations you care about." 
       sign_up:        "Sign up now!"
+      micropost_feed: 'Micropost Feed'
+    help:
+      help_title:     "Help"
+      help_text:      "These are same informations about help"
+    about:
+      about_title:    "About"
+      about_text:     "These are same informations about Micropost"
+    contact:
+      contact_title:  "Contact"
+      contact_text:   "These are same informations about how to contact with me"
+
+
+  shared:
+    user_info:
+      view_my_profile:    'view my profile'
+
+    feed_item:
+      view_conversation:  'View Conversation'
+      expand:             'Expand'
+      reply:              'Reply'
+      posted:             'Posted'
+      ago:                'ago'
+      delete:             'delete'
+      reply_button:       'Reply'
+
+    microblog_form:
+      post:            'Post'
+
+  microblogs:
+    microblog:
+      posted:             'Posted'
+      ago:                'ago'
+      delete:             'delete'  
+
+  users:
+    edit:
+      update_your_profile:   "Update your profile"
+      save_changes:          "Save changes"
+      change:                "change"
+
+    fields:
+      name:                  "name"
+      email:                 "email"
+      password:              "password"
+      confirm_password:      "Confirm Password"
+
+    user:
+      delete:                "delete"
+    index:
+      user_title:            "All users"
+
+    follow:                  
+      follow:                "Follow"
+
+    unfollow:
+      unfollow:              "unfollow"
+
+  sessions:
+    new:
+      sign_in:   "Sign in"
+
+      email:     "email"
+      password:   "password"
+
+      sign_in_button:  "Sign in"
 

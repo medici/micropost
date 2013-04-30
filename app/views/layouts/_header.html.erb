@@ -8,7 +8,7 @@
               <li id="search">
                 <%= form_for(:searchs, url: search_path,html: { method: :get })  do |f| %>
                   <%= f.text_field :name ,class: 'search-query',placeholder: 'Search'%>
-                  <%= f.submit "Search", class: "btn btn-small" %>
+                  <%= f.submit t('.search'), class: "btn btn-small" %>
                 <% end %>
               </li>
             <% end %>
@@ -32,6 +32,15 @@
             <% else %>
               <li><%= link_to t('.sign_in'), signin_path %></li>
             <% end %>
+            <li id="banner">
+              <%= form_tag root_path, class: 'locale' do %>
+                <%= select_tag 'set_locale',
+                  options_for_select(LANGUAGES, I18n.locale.to_s),
+                  onchange: 'this.form.submit()' %>
+                <%= submit_tag 'submit' %>
+                <%= javascript_tag "$('.locale input').hide()" %>
+              <% end %>
+            </li>
           </ul>
         </nav>
   		</div>

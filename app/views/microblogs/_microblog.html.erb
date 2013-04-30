@@ -1,10 +1,10 @@
 <li>
 	<span class="content"><%= microblog.content %></span>
 	<span class="timestamp">
-		Posted <%= time_ago_in_words(microblog.created_at) %> ago.
+		<%= t('.posted') %> <%= time_ago_in_words(microblog.created_at) %> <%= t('.ago') %>.
 	</span>
 	<% if current_user?(microblog.user) %>
-	<%= link_to "delete", microblog, method: :delete,
+	<%= link_to t('.delete'), microblog, method: :delete,
 	                                 data: { confirm: "You sure" },
 	                                 title: microblog.content %>
 	<% end %>

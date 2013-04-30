@@ -1,5 +1,33 @@
 zh_cn:
   
+  datetime:
+    distance_in_words:
+      half_a_minute: '半分钟'
+      less_than_x_seconds:
+        zero: '小于一秒'
+        other: '%{count} 秒'
+      x_seconds:
+        other: '%{count} 秒'
+      less_than_x_minutes:
+        zero: '小于一分钟'
+        other: '%{count} 分钟'
+      x_minutes:
+        other: '%{count} 分钟'
+      about_x_hours:
+        one:   '1 小时'
+        other: '%{count} 小时'
+      x_days:
+        other: '%{count} 天'
+      about_x_months:
+        other: '%{count} 月'
+      x_months:
+        other: '%{count} 月'
+      about_x_years:
+        other: '%{count} 年'
+      over_x_years:
+        other: '%{count} 年'
+
+
   layouts:
     header:
       home:       '主页'
@@ -10,6 +38,7 @@ zh_cn:
       profile:    '资料'
       settings:   '设置'
       sign_out:   '登出'
+      search:     '搜索'
 
     footer:
       about:      '关于我们'
@@ -18,8 +47,71 @@ zh_cn:
 
   static_pages:
     home:
-      home_title:    '欢迎来到 Microblog'
-      home_describe: '与你关心的人们一起，探寻变化的大千世界'
-      sign_up:       '注册 Microblog'
+      home_title:     '欢迎来到 Microblog'
+      home_describe:  '与你关心的人们一起，探寻变化的大千世界'
+      sign_up:        '注册 Microblog'
+      micropost_feed: '信息流'
+    help:
+      help_title:     '帮助'
+      help_text:      '这里提供帮助信息'
+    about:
+      about_title:    "关于我们"
+      about_text:     "这里提供关于Micropost的信息"
+    contact:
+      contact_title:  "联系"
+      contact_text:   "这里提供联系信息"
 
+  shared:
+    user_info:
+      view_my_profile: '查看资料'
+
+    feed_item:
+      view_conversation:  '显示会话'
+      expand:             '展开'
+      reply:              '回复'
+      posted:             '发送于'
+      ago:                '之前'
+      delete:             '删除'
+      reply_button:       '回复'
+
+    microblog_form:
+      post:            '发送'
+
+  microblogs:
+    microblog:
+      posted:             '发送于'
+      ago:                '之前'
+      delete:             '删除'
+
+  users:
+    edit:
+      update_your_profile:   "更新资料"
+      save_changes:          "保存"
+      change:                "更改"
+
+    fields:
+      name:                  "名字"
+      email:                 "邮箱"
+      password:              "密码"
+      confirm_password:      "再次输入"
+
+    user:
+      delete:                '删除'
+    index:
+      user_title:            "所有用户"
+
+    follow:                  
+      follow:                "关注"
+
+    unfollow:
+      unfollow:              "取消关注"
+
+  sessions:
+    new:
+      sign_in:   "登录"
+
+      email:     "邮箱"
+      password:   "密码"
+
+      sign_in_button:  "登录"
 

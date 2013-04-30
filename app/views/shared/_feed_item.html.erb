@@ -7,26 +7,26 @@
 
 	<% if feed_item.replying? %>
 		<span class="view">
-      <%= link_to "View conversation", 
+      <%= link_to t('.view_conversation'), 
       	  view_conversation_microblog_path(feed_item.id), remote: true %>
     </span>
   <% else %>  
     <span class=" expand">
-      <%= link_to "Expand", expand_microblog_path(feed_item.id), 
+      <%= link_to t('.exapnd'), expand_microblog_path(feed_item.id), 
       remote: true %>
     </span>
 	<% end %>
 
 	<span class="reply">
-		<%= link_to "Reply", '#' %>
+		<%= link_to t('.reply'), '#' %>
 	</span>
 
 	<span class="timestamp">
-		Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+		<%= t('.posted') %> <%= time_ago_in_words(feed_item.created_at) %> <%= t('.ago') %>.
 	</span>
 
 	<% if current_user?(feed_item.user) %>
-		<%= link_to "delete", feed_item, method: :delete,
+		<%= link_to t('.delete'), feed_item, method: :delete,
 		                                 data: { confirm: "You sure?" },
 		                                 title: feed_item.content %>
 	<% end %>
@@ -40,7 +40,7 @@
 				    placeholder: "Reply..." %>
 			</div>
 			<div><%= f.hidden_field :in_reply_to, :value => feed_item.id %></div>
-			<%= f.submit "Reply", class: "btn btn-small btn-primary" %>
+			<%= f.submit t('.reply_button'), class: "btn btn-small btn-primary" %>
 	  <% end %>
   </div> 
 </li>
