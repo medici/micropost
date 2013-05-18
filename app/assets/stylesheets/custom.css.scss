@@ -20,6 +20,7 @@ html {
 
 body {
 	padding-top: 60px;
+	background: url(bg.gif);
 }
 
 section {
@@ -36,6 +37,26 @@ textarea {
 		margin-bottom: 10px;
 	}
 }
+.row {
+	background: url(bg.png);
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 5px;
+	padding-bottom: 20px;
+}
+
+
+.span4, .span8 {
+	background: white;
+	margin: 0px;
+	padding:5px;
+	border-radius: 5px;
+}
+
+.span4 {
+	margin-right: 10px;
+}
+
 // typography
 // -------------------------------
 
@@ -278,8 +299,15 @@ aside {
 // -------------------------------
 
 footer {
-	margin-top: 45px;
+	position: relative;
+	left: -20px;	
+	width: 100%;
+	border-radius: 5px;
+	background: white;
+	margin-top: 25px;
+	padding: 10px;
 	padding-top: 5px;
+	height: 15px;
 	border-top: 1px solid $grayMediumLight;
 	color: $grayLight;
 	a {
@@ -289,9 +317,11 @@ footer {
 		}
 	}
 	small {
+		background: white;
 		float: left;
 	}
 	ul {
+		background: white;
 		float: right;
 		list-style: none;
 		li {
