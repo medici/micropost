@@ -21,6 +21,10 @@
 		<%= link_to t('.reply'), '#' %>
 	</span>
 
+	<span class="retweet">
+		<%= link_to "retweet", '#' %>
+	</span>
+
 	<span class="timestamp">
 		<%= t('.posted') %> <%= time_ago_in_words(feed_item.created_at) %> <%= t('.ago') %>.
 	</span>
@@ -42,5 +46,15 @@
 			<div><%= f.hidden_field :in_reply_to, :value => feed_item.id %></div>
 			<%= f.submit t('.reply_button'), class: "btn btn-small btn-primary" %>
 	  <% end %>
-  </div> 
+  </div>
+
+  <div class="retweet_form">
+  	<%= form_for(@microblog) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="field">
+		<%= f.text_area :content %>
+	</div>
+	<%= f.submit "retweet", class: "btn btn-small btn-primary" %>
+<% end %>
+  </div>
 </li>
