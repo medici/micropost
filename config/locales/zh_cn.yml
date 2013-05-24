@@ -19,6 +19,7 @@ zh_cn:
       x_days:
         other: '%{count} 天'
       about_x_months:
+        one: '1 个月 '
         other: '%{count} 月'
       x_months:
         other: '%{count} 月'
