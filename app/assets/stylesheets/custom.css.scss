@@ -23,6 +23,12 @@ body {
 	background: url(bg.gif);
 }
 
+h1, p {
+  padding: 10px;
+	background: white;
+	border-radius: 5px;
+}
+
 section {
 	overflow: auto;
 }
@@ -36,6 +42,11 @@ textarea {
 	h1 {
 		margin-bottom: 10px;
 	}
+}
+#new_session,#new_user {
+	background: white;
+	padding: 15px;
+	border-radius: 5px;
 }
 .row {
 	background: url(bg.png);
